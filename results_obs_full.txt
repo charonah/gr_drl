@@ -1,0 +1,20 @@
+******  Results for full_obs ******
+# full_obs 
+#OBS	 Acc	 Prec	 Rec	 F-S
+full_obs	0.94	0.84	0.84	0.84
+******  Results for 0.7_obs ******
+# 0.7_obs 
+#OBS	 Acc	 Prec	 Rec	 F-S
+0.7_obs	0.92	0.80	0.80	0.80
+******  Results for 0.5_obs ******
+# 0.5_obs 
+#OBS	 Acc	 Prec	 Rec	 F-S
+0.5_obs	0.92	0.80	0.80	0.80
+******  Results for 0.3_obs ******
+# 0.3_obs 
+#OBS	 Acc	 Prec	 Rec	 F-S
+0.3_obs	0.91	0.78	0.78	0.78
+******  Results for 0.1_obs ******
+# 0.1_obs 
+#OBS	 Acc	 Prec	 Rec	 F-S
+0.1_obs	0.90	0.76	0.76	0.76
