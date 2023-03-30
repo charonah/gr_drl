@@ -415,24 +415,24 @@ class GazeboEnv:
         for i in range(4):
             name = "cardboard_box_" + str(i)
             
-            # # random_box for dynamic env:
-            # x = 0
-            # y = 0
-            # box_ok = False
-            # while not box_ok:
-            #     x = np.random.uniform(-6, 6)
-            #     y = np.random.uniform(-6, 6)
-            #     box_ok = check_pos(x, y)
-            #     distance_to_robot = np.linalg.norm([x - self.odom_x, y - self.odom_y])
-            #     distance_to_goal = np.linalg.norm([x - self.real_goal_x, y - self.real_goal_y])
-            #     if distance_to_robot < 1.5 or distance_to_goal < 1.5:
-            #         box_ok = False
+            # random_box for dynamic env:
+            x = 0
+            y = 0
+            box_ok = False
+            while not box_ok:
+                x = np.random.uniform(-6, 6)
+                y = np.random.uniform(-6, 6)
+                box_ok = check_pos(x, y)
+                distance_to_robot = np.linalg.norm([x - self.odom_x, y - self.odom_y])
+                distance_to_goal = np.linalg.norm([x - self.real_goal_x, y - self.real_goal_y])
+                if distance_to_robot < 1.5 or distance_to_goal < 1.5:
+                    box_ok = False
             
-            # random_box for statics env:
-            x_set =[-0.5747037629520912, -1.182659163371806, -1.0579705684964775, 1.5108878245215633]
-            y_set =[4.246934303446224, -1.3415226805021918, 3.6542468140185846, -4.4323475800689796]
-            x = x_set[i]
-            y = y_set[i]
+            # # random_box for statics env:
+            # x_set =[-0.5747037629520912, -1.182659163371806, -1.0579705684964775, 1.5108878245215633]
+            # y_set =[4.246934303446224, -1.3415226805021918, 3.6542468140185846, -4.4323475800689796]
+            # x = x_set[i]
+            # y = y_set[i]
 
             # print(x,y)
             box_state = ModelState()

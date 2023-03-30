@@ -1,0 +1,40 @@
+******  Results for Dynamic_full_obs_0.1_noise ******
+# Dynamic_full_obs_0.1_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+Dynamic_full_obs_0.1_noise	0.94	0.85	0.85	0.85
+******  Results for Dynamic_full_obs_0.1_noise ******
+# Dynamic_full_obs_full_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+Dynamic_full_obs_0.1_noise	0.92	0.80	0.80	0.80
+******  Results for Dynamic_full_obs_10db_noise ******
+# Dynamic_full_obs_10db_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+Dynamic_full_obs_10db_noise	0.880	0.700	0.700	0.700
+******  Results for Dynamic_full_obs_5db_noise ******
+# Dynamic_full_obs_5db_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+Dynamic_full_obs_5db_noise	0.920	0.800	0.800	0.800
+******  Results for Dynamic_full_obs_5db_noise ******
+# Dynamic_full_obs_5db_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+Dynamic_full_obs_5db_noise	0.840	0.600	0.600	0.600
+******  Results for Dynamic_full_obs_5db_noise ******
+# Dynamic_full_obs_5db_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+Dynamic_full_obs_5db_noise	1.000	1.000	1.000	1.000
+******  Results for Dynamic_full_obs_5db_noise ******
+# Dynamic_full_obs_5db_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+Dynamic_full_obs_5db_noise	0.880	0.700	0.700	0.700
+******  Results for Dynamic_full_obs_5db_noise ******
+# Dynamic_full_obs_5db_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+Dynamic_full_obs_5db_noise	0.920	0.800	0.800	0.800
+******  Results for Dynamic_full_obs_5db_noise ******
+# Dynamic_full_obs_5db_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+Dynamic_full_obs_5db_noise	0.870	0.675	0.675	0.675
+******  Results for Dynamic_full_obs_5db_noise ******
+# Dynamic_full_obs_5db_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+Dynamic_full_obs_5db_noise	0.950	0.875	0.875	0.875

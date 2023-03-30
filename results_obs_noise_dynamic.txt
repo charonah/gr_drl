@@ -1,0 +1,28 @@
+******  Results for 0.5_obs_0.1_noise ******
+# 0.5_obs_0.1_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+0.5_obs_0.1_noise	0.94	0.84	0.84	0.84
+******  Results for 0.5_obs_0.3_noise ******
+# 0.5_obs_0.3_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+0.5_obs_0.3_noise	0.93	0.82	0.82	0.82
+******  Results for 0.5_obs_0.5_noise ******
+# 0.5_obs_0.5_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+0.5_obs_0.5_noise	0.94	0.85	0.85	0.85
+******  Results for full_obs_0.1_noise ******
+# full_obs_0.1_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+full_obs_0.1_noise	0.93	0.83	0.83	0.83
+******  Results for full_obs_0.3_noise ******
+# full_obs_0.3_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+full_obs_0.3_noise	0.92	0.81	0.81	0.81
+******  Results for full_obs_0.5_noise ******
+# full_obs_0.5_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+full_obs_0.5_noise	0.94	0.85	0.85	0.85
+******  Results for full_obs_0.5_noise ******
+# full_obs_0.5_noise 
+#OBS	 Acc	 Prec	 Rec	 F-S
+full_obs_0.5_noise	0.93	0.82	0.82	0.82

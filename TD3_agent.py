@@ -12,8 +12,8 @@ from replay_buffer import ReplayBuffer
 from velodyne_env import GazeboEnv
 
 from recognition import recogniton_observability
+from recognition import recogniton_observability_dict
 from recognition import run_domain_metrics
-from recognition import calculate_all_metrics
 from recognition import writter_file
 
                            
@@ -396,19 +396,33 @@ test for recognition
 if test_model:
 
     done = False
-
     episode_timesteps = 0  # freq
-
-    accumulated_q = 0 # accumulated Qvalue
+    accumulated_q = 0 # accumulated Qvalue single 
+    
+    # partial observability List[0. 1:10, 0.3:8, 0.5:6, 0.7:4, 1.0:1]   
+    accumulated_q_dict = dict()
+    PARTIAL_OBS = [40, 30, 20, 10, 1] 
+    # keys_OBS = ['0.1OBS', '0.3OBS', '0.5OBS', '0.7OBS', 'fullOBS']
+    for key in PARTIAL_OBS:
+        accumulated_q_dict[str(key)] = 0
 
     state = env.reset() 
     step = 0  # step
-    
+    t0 = time.time() # start time
+    count = 0 # use for count time
+    t_array = []
     # initial recognition_episode_results
     recognition_episode_results = dict()
     keys = ['TP', 'FP', 'FN', 'TN', 'len']
     for key in keys:
         recognition_episode_results[key] = 0
+    # initial recognition_episode_results_dict
+    recognition_episode_results_dict = dict()
+    for key in PARTIAL_OBS:
+        recognition_episode_results_dict[str(key)] = dict()
+        for key_ in keys:
+            recognition_episode_results_dict[str(key)][key_] = 0
+        
 
     while True:
 
@@ -423,27 +437,71 @@ if test_model:
                                                 freq=episode_timesteps,
                                                 accumulated_q=accumulated_q)
 
+        accumulated_q_dict = recogniton_observability_dict(network=network, 
+                                                action=action, 
+                                                state=state_recognition, 
+                                                freq=episode_timesteps,
+                                                accumulated_q_dict=accumulated_q_dict,
+                                                partial=PARTIAL_OBS)
+
+        # for caculate online time
+        flag = (np.argmax(accumulated_q, axis=0) == real_goal_index)
+        if flag:
+            count += 1
+            if count == 3:
+                t = time.time() - t0
+                t_array.append(t)
+        else:
+            count = 0
+
+
         done = 1 if episode_timesteps + 1 == max_ep else int(done)
 
         # On termination of episode
         if done:
             state = env.reset()
+            t0 = time.time()
 
             #caculate domain results
             one_step_result = run_domain_metrics(real_goal=real_goal_index, 
                                     result=accumulated_q)
             for key in keys:
                 recognition_episode_results[key] += one_step_result[key]
-
-            print(step)           
+            
+            #caculate domain results_dict
+            for key in PARTIAL_OBS:
+                one_step_result = run_domain_metrics(real_goal=real_goal_index, 
+                                    result=accumulated_q_dict[str(key)])
+                for key_ in keys:
+                    recognition_episode_results_dict[str(key)][key_] += one_step_result[key_]
+            # print(recognition_episode_results_dict)
+ 
             accumulated_q = np.zeros((5,1))
+            for key in PARTIAL_OBS:
+                accumulated_q_dict[str(key)] = np.zeros((5,1))
+
             done = False
             episode_timesteps = 0
             step += 1
+            print("step:%d"%step)           
 
-            #caculate acc...
+            #caculate acc...  & avr time
             if step % 100 == 0:
-                writter_file(recognition_episode_results, obs_type = 'full_obs_0.1_noise',file='results_obs_noise.txt')
+                # # single 
+                # writter_file(recognition_episode_results,
+                #             obs_type = 'Dynamic_full_obs_zero_noise',
+                #             file='test_integration.txt')
+                
+                for key in PARTIAL_OBS:
+                    writter_file(recognition_episode_results_dict[str(key)],
+                                 obs_type = '%d'%key,
+                                 file='test_integration.txt')
+                # writter_file(recognition_episode_results, obs_type = 'Dynamic_full_obs_zero_noise',file='test_integration.txt')
+                # #caculate avr time
+                # if len(t_array):
+                #     print(t_array)
+                #     print(sum(t_array)/len(t_array))
+                # t_array = []
 
         else:
             state = next_state

@@ -3,7 +3,7 @@ import time
 
 import numpy as np
 from numpy import inf
-
+ 
 
 '''
 author: Zihao FANG
@@ -17,23 +17,37 @@ some edit was in TD3_agent.py & velodyne_env.py
 def recogniton_observability(network, action, state, freq, accumulated_q):
 
     Qvalues = []
-
-    # noise obs:0.5:4\\0.3:6\\0.1:10
-    if freq % 10 == 0:
-        action = (action + np.random.normal(0, 1, size=2)).clip(-1, 1)
-
-    for state_ in state:
-        Qvalue = network.get_Qvalue(np.array(action), np.array(state_))
-        Qvalues.append(Qvalue)  
-
-    Qvalues = np.array(Qvalues)
-
     # partial obs:1:1\\0.7:2\\0.5:3\\0.3:4\\0.1:10
     if freq % 1 == 0:
+        # noise obs:0.5:4\\0.3:6\\0.1:10
+        # if freq % 10 == 0:
+        #     action = (action + np.random.normal(0, 0.3, size=2))
+        #     # action = np.random.normal(0, 1, size=2).clip(-1, 1)
+    
+        for state_ in state:
+            Qvalue = network.get_Qvalue(np.array(action), np.array(state_))
+            Qvalues.append(Qvalue)  
+
+        Qvalues = np.array(Qvalues)
         accumulated_q += Qvalues 
-        # print(np.argmax(accumulated_q, axis=0))
+    # print(np.argmax(accumulated_q, axis=0))
 
     return accumulated_q
+
+def recogniton_observability_dict(network, action, state, freq, accumulated_q_dict, partial):
+    for key in partial:  
+        Qvalues = []
+        # partial obs:1:1\\0.7:2\\0.5:3\\0.3:4\\0.1:10
+        if freq % key == 0:
+
+            for state_ in state:
+                Qvalue = network.get_Qvalue(np.array(action), np.array(state_))
+                Qvalues.append(Qvalue)  
+
+            Qvalues = np.array(Qvalues) 
+            accumulated_q_dict[str(key)] += Qvalues 
+    # print(accumulated_q_dict)
+    return accumulated_q_dict
 
 
 def writter_file(recognition_episode_results, obs_type, file = None):
@@ -46,15 +60,14 @@ def writter_file(recognition_episode_results, obs_type, file = None):
 
         file.write(f'#OBS\t Acc\t Prec\t Rec\t F-S\n')
         print('OBS:', obs_type, 'Accuracy:', accuracy, 'Precision:', precision, 'Recall:', recall, 'F-Score:', fscore)
-        file.write(f'{obs_type}\t{accuracy:.2f}\t{precision:.2f}\t{recall:.2f}\t{fscore:.2f}\n') 
-
+        file.write(f'{obs_type}\t{accuracy:.3f}\t{precision:.3f}\t{recall:.3f}\t{fscore:.3f}\n') 
 
 
 '''
-TP True Positive 实际为垃圾邮件你预测为垃圾邮件，
-FP False Positive 实际不是垃圾邮件你预测为垃圾邮件
-TN True Negative 实际为垃圾邮件你预测为不是垃圾邮件，
-FN False Negative 实际不是垃圾邮件你预测为不是垃圾邮件。
+TP True Positive 
+FP False Positive 
+TN True Negative 
+FN False Negative 
 result:accumulated_q
 '''
 def run_domain_metrics(real_goal, result):
