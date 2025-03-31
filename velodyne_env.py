@@ -428,7 +428,7 @@ class GazeboEnv:
                 if distance_to_robot < 1.5 or distance_to_goal < 1.5:
                     box_ok = False
             
-            # # random_box for statics env:
+            # random_box for statics env:
             # x_set =[-0.5747037629520912, -1.182659163371806, -1.0579705684964775, 1.5108878245215633]
             # y_set =[4.246934303446224, -1.3415226805021918, 3.6542468140185846, -4.4323475800689796]
             # x = x_set[i]

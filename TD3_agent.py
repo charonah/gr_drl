@@ -13,8 +13,11 @@ from velodyne_env import GazeboEnv
 
 from recognition import recogniton_observability
 from recognition import recogniton_observability_dict
+from recognition import recogniton_observability_loss
+from recognition import recogniton_observability_noise
 from recognition import run_domain_metrics
 from recognition import writter_file
+from recognition import writter_time_file
 
                            
 
@@ -397,63 +400,147 @@ if test_model:
 
     done = False
     episode_timesteps = 0  # freq
-    accumulated_q = 0 # accumulated Qvalue single 
-    
+
+    # accumulated Qvalue single 
+    accumulated_q = 0 
+
     # partial observability List[0. 1:10, 0.3:8, 0.5:6, 0.7:4, 1.0:1]   
     accumulated_q_dict = dict()
-    PARTIAL_OBS = [40, 30, 20, 10, 1] 
+    PARTIAL_OBS = [20, 10, 4, 2, 1] 
     # keys_OBS = ['0.1OBS', '0.3OBS', '0.5OBS', '0.7OBS', 'fullOBS']
     for key in PARTIAL_OBS:
         accumulated_q_dict[str(key)] = 0
 
+    # accumulated_q_loss_dict
+    accumulated_q_loss_dict = dict()
+    sample_dict = dict()
+    SAMPLE = [8, 15, 45, 75]
+    for key in SAMPLE:
+        accumulated_q_loss_dict[str(key)] = 0
+        # sample_dict[str(key)] = np.random.randint(1, 105, size=key).tolist()
+
+    # accumulated_q_noise single
+    accumulated_q_noise = 0
+    DB = [100, 80, 50, 10, 5, 2]
+    accumulated_q_noise = dict()
+    for key in DB:
+        accumulated_q_noise[str(key)] = 0
+    accumulated_q_noise_50 = dict()
+    for key in DB:
+        accumulated_q_noise_50[str(key)] = 0
+
     state = env.reset() 
     step = 0  # step
-    t0 = time.time() # start time
-    count = 0 # use for count time
-    t_array = []
+    flag = dict()
+
+    count = dict() # use for count time
+    t_array = dict()
+    for key in DB:
+        t_array[str(key)] = []
+        count[str(key)] = 0
+        flag[str(key)] = 0
     # initial recognition_episode_results
     recognition_episode_results = dict()
     keys = ['TP', 'FP', 'FN', 'TN', 'len']
     for key in keys:
         recognition_episode_results[key] = 0
-    # initial recognition_episode_results_dict
-    recognition_episode_results_dict = dict()
+    # initial recognition_episode_results_dict_par
+    recognition_episode_results_dict_par = dict()
     for key in PARTIAL_OBS:
-        recognition_episode_results_dict[str(key)] = dict()
-        for key_ in keys:
-            recognition_episode_results_dict[str(key)][key_] = 0
-        
+        recognition_episode_results_dict_par[str(key)] = dict()
+        for key_ in keys: 
+            recognition_episode_results_dict_par[str(key)][key_] = 0
+    # initial recognition_episode_results_dict_ploss
+    recognition_episode_results_dict_loss = dict()
+    for key in SAMPLE:
+        recognition_episode_results_dict_loss[str(key)] = dict()
+        for key_ in keys: 
+            recognition_episode_results_dict_loss[str(key)][key_] = 0
+    # initial recognition_episode_results_noise
+    recognition_episode_results_noise = dict()
+    for key in DB:
+        recognition_episode_results_noise[str(key)] = dict()
+        for key_ in keys: 
+            recognition_episode_results_noise[str(key)][key_] = 0
+    # initial recognition_episode_results_noise_0.5
+    recognition_episode_results_noise_50 = dict()
+    for key in DB:
+        recognition_episode_results_noise_50[str(key)] = dict()
+        for key_ in keys: 
+            recognition_episode_results_noise_50[str(key)][key_] = 0
+
+    t0 = time.time() # start time
 
     while True:
 
         action = network.get_action(np.array(state))
         a_in = [(action[0] + 1) / 2, action[1]]
-   
         next_state, reward, done, target, state_recognition = env.step(a_in)
-    
-        accumulated_q = recogniton_observability(network=network, 
+        # print("freq = %d"%episode_timesteps)
+        # random for sample 
+        for key in SAMPLE:
+            sample_dict[str(key)] = np.random.randint(1, 105, size=key).tolist()
+        # #for caculate accumulated_q
+        # accumulated_q = recogniton_observability(network=network, 
+        #                                         action=action, 
+        #                                         state=state_recognition, 
+        #                                         freq=episode_timesteps,
+        #                                         accumulated_q=accumulated_q)
+
+        #for caculate accumulated_q_dict 
+        # accumulated_q_dict = recogniton_observability_dict(network=network, 
+        #                                         action=action, 
+        #                                         state=state_recognition, 
+        #                                         freq=episode_timesteps,
+        #                                         accumulated_q_dict=accumulated_q_dict,
+        #                                         partial=PARTIAL_OBS)
+
+        # #for caculate accumulated_q_loss
+        # accumulated_q_loss_dict = recogniton_observability_loss(network=network,
+        #                                             action=action,
+        #                                             state=state_recognition,
+        #                                             freq=episode_timesteps,
+        #                                             accumulated_q_loss_dict=accumulated_q_loss_dict,
+        #                                             sample=sample_dict,
+        #                                             SAMPLE=SAMPLE
+        #                                             )
+
+        # # for caculate accumulated_q_noise
+        # accumulated_q_noise = recogniton_observability_noise(network=network, 
+        #                                         action=action, 
+        #                                         state=state_recognition, 
+        #                                         freq=episode_timesteps,
+        #                                         accumulated_q_noise=accumulated_q_noise,
+        #                                         db=DB,
+        #                                         partial = 1, #100% obs
+        #                                         GAUSSIAN = True,
+        #                                         PASSION = False,
+        #                                         LAPLACE = False
+        #                                         )
+
+        #for caculate accumulated_q_noise_50
+        accumulated_q_noise_50 = recogniton_observability_noise(network=network, 
                                                 action=action, 
                                                 state=state_recognition, 
                                                 freq=episode_timesteps,
-                                                accumulated_q=accumulated_q)
+                                                accumulated_q_noise=accumulated_q_noise_50,
+                                                db=DB,
+                                                partial = 2,  #50% partial obs
+                                                GAUSSIAN = True,
+                                                PASSION = False,
+                                                LAPLACE = False
+                                                )
 
-        accumulated_q_dict = recogniton_observability_dict(network=network, 
-                                                action=action, 
-                                                state=state_recognition, 
-                                                freq=episode_timesteps,
-                                                accumulated_q_dict=accumulated_q_dict,
-                                                partial=PARTIAL_OBS)
-
-        # for caculate online time
-        flag = (np.argmax(accumulated_q, axis=0) == real_goal_index)
-        if flag:
-            count += 1
-            if count == 3:
-                t = time.time() - t0
-                t_array.append(t)
-        else:
-            count = 0
-
+        #for caculate online time
+        for key in DB:
+            flag[str(key)] = (np.argmax(accumulated_q_noise_50[str(key)], axis=0) == real_goal_index)
+            if flag[str(key)]:
+                count[str(key)] += 1
+                if count[str(key)] == 3:
+                    t = time.time() - t0
+                    t_array[str(key)].append(t)
+            else:
+                count[str(key)] = 0
 
         done = 1 if episode_timesteps + 1 == max_ep else int(done)
 
@@ -462,23 +549,49 @@ if test_model:
             state = env.reset()
             t0 = time.time()
 
-            #caculate domain results
-            one_step_result = run_domain_metrics(real_goal=real_goal_index, 
-                                    result=accumulated_q)
-            for key in keys:
-                recognition_episode_results[key] += one_step_result[key]
-            
+            #caculate domain results single
+            # one_step_result = run_domain_metrics(real_goal=real_goal_index, 
+            #                                     result=accumulated_q)
+            # for key in keys:
+            #     recognition_episode_results[key] += one_step_result[key]
+            # accumulated_q = np.zeros((5,1))
+            # accumulated_q_loss = np.zeros((5,1))
+
             #caculate domain results_dict
-            for key in PARTIAL_OBS:
+            # for key in PARTIAL_OBS:
+            #     one_step_result = run_domain_metrics(real_goal=real_goal_index, 
+            #                                     result=accumulated_q_dict[str(key)])
+            #     for key_ in keys:
+            #         recognition_episode_results_dict_par[str(key)][key_] += one_step_result[key_]
+            # for key in PARTIAL_OBS:
+            #     accumulated_q_dict[str(key)] = np.zeros((5,1))
+            
+            #caculate domain results_dict for loss_dict
+            # for key in SAMPLE:
+            #     one_step_result = run_domain_metrics(real_goal=real_goal_index, 
+            #                                     result=accumulated_q_loss_dict[str(key)])
+            #     for key_ in keys:
+            #         recognition_episode_results_dict_loss[str(key)][key_] += one_step_result[key_]
+            # for key in SAMPLE:
+            #     accumulated_q_loss_dict[str(key)] = np.zeros((5,1))
+            
+            # #caculate domain results_dict for noise
+            # for key in DB:
+            #     one_step_result = run_domain_metrics(real_goal=real_goal_index, 
+            #                                     result=accumulated_q_noise[str(key)])
+            #     for key_ in keys:
+            #         recognition_episode_results_noise[str(key)][key_] += one_step_result[key_]
+            # for key in DB:
+            #     accumulated_q_noise[str(key)] = np.zeros((5,1))
+
+            # #caculate domain results_dict for noise_50
+            for key in DB:
                 one_step_result = run_domain_metrics(real_goal=real_goal_index, 
-                                    result=accumulated_q_dict[str(key)])
+                                                result=accumulated_q_noise_50[str(key)])
                 for key_ in keys:
-                    recognition_episode_results_dict[str(key)][key_] += one_step_result[key_]
-            # print(recognition_episode_results_dict)
- 
-            accumulated_q = np.zeros((5,1))
-            for key in PARTIAL_OBS:
-                accumulated_q_dict[str(key)] = np.zeros((5,1))
+                    recognition_episode_results_noise_50[str(key)][key_] += one_step_result[key_]
+            for key in DB:
+                accumulated_q_noise_50[str(key)] = np.zeros((5,1))
 
             done = False
             episode_timesteps = 0
@@ -486,22 +599,45 @@ if test_model:
             print("step:%d"%step)           
 
             #caculate acc...  & avr time
-            if step % 100 == 0:
+            if step % 40 == 0:
                 # # single 
                 # writter_file(recognition_episode_results,
-                #             obs_type = 'Dynamic_full_obs_zero_noise',
-                #             file='test_integration.txt')
-                
-                for key in PARTIAL_OBS:
-                    writter_file(recognition_episode_results_dict[str(key)],
-                                 obs_type = '%d'%key,
-                                 file='test_integration.txt')
-                # writter_file(recognition_episode_results, obs_type = 'Dynamic_full_obs_zero_noise',file='test_integration.txt')
-                # #caculate avr time
-                # if len(t_array):
-                #     print(t_array)
-                #     print(sum(t_array)/len(t_array))
-                # t_array = []
+                #             obs_type = '10db',
+                #             file='test_noise_single.txt')
+
+                #for dict partial
+                # for key in PARTIAL_OBS:
+                #     writter_file(recognition_episode_results_dict_par[str(key)],
+                #                  obs_type = '%d'%key,
+                #                  file='time-partial.txt')
+
+                # #for dict loss 
+                # for key in SAMPLE:
+                #     writter_file(recognition_episode_results_dict_loss[str(key)],
+                #                  obs_type = '%d'%key,
+                #                  file='loss_dict_dynamics.txt')
+
+                # #for dict noise
+                # for key in DB:
+                #     writter_file(recognition_episode_results_noise[str(key)],
+                #                  obs_type = '%d-po-dy'%key,
+                #                  file='noise_db_dynamics.txt')
+
+                # #for dict noise_50%
+                # for key in DB:
+                #     writter_file(recognition_episode_results_noise_50[str(key)],
+                #                  obs_type = '%d-passion-dy'%key,
+                #                  file='noise_db_dynamics.txt')
+
+                #caculate avr time
+                for key in DB:
+                    if len(t_array[str(key)]):
+                        writter_time_file(t_array[str(key)],
+                                        key = key,
+                                        file= 'online_time.txt')
+                        # print(key)
+                        # print(t_array[str(key)])
+                    t_array[str(key)] = []
 
         else:
             state = next_state

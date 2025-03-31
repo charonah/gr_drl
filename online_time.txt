@@ -1,0 +1,153 @@
+
+******  Results for 20 ******
+20	10.172
+******  Results for 10 ******
+10	9.900
+******  Results for 4 ******
+4	9.725
+******  Results for 2 ******
+2	9.664
+******  Results for 1 ******
+1	9.672
+
+statics
+
+******  Results for dynamics 20 ******
+20	10.509
+******  Results for dynamics 10 ******
+10	10.684
+******  Results for dynamics 4 ******
+4	10.537
+******  Results for dynamics 2 ******
+2	10.553
+******  Results for dynamics 1 ******
+1	10.530
+
+dynamics db 100
+
+******  Results for dynamics 100 ******
+100	11.072
+******  Results for dynamics 80 ******
+80	11.072
+******  Results for dynamics 50 ******
+50	11.072
+******  Results for dynamics 10 ******
+10	11.171
+******  Results for dynamics 5 ******
+5	11.141
+******  Results for dynamics 2 ******
+2	11.182
+
+statics db 100
+******  Results for dynamics 100 ******
+100	10.719
+******  Results for dynamics 80 ******
+80	10.719
+******  Results for dynamics 50 ******
+50	10.722
+******  Results for dynamics 10 ******
+10	10.720
+******  Results for dynamics 5 ******
+5	10.825
+******  Results for dynamics 2 ******
+2	9.947
+
+******  Results for dynamics 100 ******
+100	9.999
+******  Results for dynamics 80 ******
+80	9.999
+******  Results for dynamics 50 ******
+50	10.000
+******  Results for dynamics 10 ******
+10	10.117
+******  Results for dynamics 5 ******
+5	10.295
+******  Results for dynamics 2 ******
+2	10.104
+
+dynamics 50 db 
+
+******  Results for dynamics 100 ******
+100	10.631
+******  Results for dynamics 80 ******
+80	10.631
+******  Results for dynamics 50 ******
+50	10.631
+******  Results for dynamics 10 ******
+10	10.864
+******  Results for dynamics 5 ******
+5	11.002
+******  Results for dynamics 2 ******
+2	9.878
+******  Results for dynamics 100 ******
+100	10.368
+******  Results for dynamics 80 ******
+80	10.368
+******  Results for dynamics 50 ******
+50	10.361
+******  Results for dynamics 10 ******
+10	10.330
+******  Results for dynamics 5 ******
+5	10.369
+******  Results for dynamics 2 ******
+2	8.999
+******  Results for dynamics 100 ******
+100	10.535
+******  Results for dynamics 80 ******
+80	10.535
+******  Results for dynamics 50 ******
+50	10.535
+******  Results for dynamics 10 ******
+10	10.682
+******  Results for dynamics 5 ******
+5	11.292
+******  Results for dynamics 2 ******
+2	10.991
+******  Results for dynamics 100 ******
+100	10.202
+******  Results for dynamics 80 ******
+80	10.202
+******  Results for dynamics 50 ******
+50	10.202
+******  Results for dynamics 10 ******
+10	10.334
+******  Results for dynamics 5 ******
+5	10.598
+******  Results for dynamics 2 ******
+2	10.349
+******  Results for dynamics 100 ******
+100	11.569
+******  Results for dynamics 80 ******
+80	11.569
+******  Results for dynamics 50 ******
+50	11.562
+******  Results for dynamics 10 ******
+10	11.866
+******  Results for dynamics 5 ******
+5	11.361
+******  Results for dynamics 2 ******
+2	10.249
+******  Results for dynamics 100 ******
+100	10.809
+******  Results for dynamics 80 ******
+80	10.809
+******  Results for dynamics 50 ******
+50	10.809
+******  Results for dynamics 10 ******
+10	10.918
+******  Results for dynamics 5 ******
+5	11.684
+******  Results for dynamics 2 ******
+2	11.906
+******  Results for dynamics 100 ******
+100	11.669
+******  Results for dynamics 80 ******
+80	11.669
+******  Results for dynamics 50 ******
+50	11.661
+******  Results for dynamics 10 ******
+10	11.947
+******  Results for dynamics 5 ******
+5	12.472
+******  Results for dynamics 2 ******
+2	11.603

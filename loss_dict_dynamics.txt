@@ -1,0 +1,35 @@
+******  Results for 8 ******
+# 8 
+#OBS	 Acc	 Prec	 Rec	 F-S
+8	0.680	0.200	0.200	0.200
+******  Results for 15 ******
+# 15 
+#OBS	 Acc	 Prec	 Rec	 F-S
+15	0.760	0.400	0.400	0.400
+******  Results for 45 ******
+# 45 
+#OBS	 Acc	 Prec	 Rec	 F-S
+45	0.760	0.400	0.400	0.400
+******  Results for 75 ******
+# 75 
+#OBS	 Acc	 Prec	 Rec	 F-S
+75	0.760	0.400	0.400	0.400
+
+
+
+******  Results for 8 ******
+# 8 
+#OBS	 Acc	 Prec	 Rec	 F-S
+8	0.824	0.558	0.580	0.569
+******  Results for 15 ******
+# 15 
+#OBS	 Acc	 Prec	 Rec	 F-S
+15	0.864	0.660	0.660	0.660
+******  Results for 45 ******
+# 45 
+#OBS	 Acc	 Prec	 Rec	 F-S
+45	0.872	0.680	0.680	0.680
+******  Results for 75 ******
+# 75 
+#OBS	 Acc	 Prec	 Rec	 F-S
+75	0.872	0.680	0.680	0.680

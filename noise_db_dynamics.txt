@@ -1,0 +1,385 @@
+
+******  Results for 100 ******
+# 100 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100	0.928	0.820	0.820	0.820
+******  Results for 80 ******
+# 80 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80	0.928	0.820	0.820	0.820
+******  Results for 50 ******
+# 50 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50	0.928	0.820	0.820	0.820
+******  Results for 10 ******
+# 10 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10	0.928	0.820	0.820	0.820
+******  Results for 5 ******
+# 5 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5	0.928	0.820	0.820	0.820
+******  Results for 2 ******
+# 2 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2	0.896	0.740	0.740	0.740
+******  Results for 100-0.5 ******
+# 100-0.5 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-0.5	0.928	0.820	0.820	0.820
+******  Results for 80-0.5 ******
+# 80-0.5 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-0.5	0.928	0.820	0.820	0.820
+******  Results for 50-0.5 ******
+# 50-0.5 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-0.5	0.928	0.820	0.820	0.820
+******  Results for 10-0.5 ******
+# 10-0.5 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-0.5	0.928	0.820	0.820	0.820
+******  Results for 5-0.5 ******
+# 5-0.5 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-0.5	0.924	0.810	0.810	0.810
+******  Results for 2-0.5 ******
+# 2-0.5 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-0.5	0.876	0.690	0.690	0.690
+******  Results for 100-static ******
+# 100-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-static	0.972	0.930	0.930	0.930
+******  Results for 80-static ******
+# 80-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-static	0.972	0.930	0.930	0.930
+******  Results for 50-static ******
+# 50-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-static	0.972	0.930	0.930	0.930
+******  Results for 10-static ******
+# 10-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-static	0.972	0.930	0.930	0.930
+******  Results for 5-static ******
+# 5-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-static	0.972	0.930	0.930	0.930
+******  Results for 2-static ******
+# 2-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-static	0.960	0.900	0.900	0.900
+******  Results for 100-0.5-static ******
+# 100-0.5-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-0.5-static	0.972	0.930	0.930	0.930
+******  Results for 80-0.5-static ******
+# 80-0.5-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-0.5-static	0.972	0.930	0.930	0.930
+******  Results for 50-0.5-static ******
+# 50-0.5-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-0.5-static	0.972	0.930	0.930	0.930
+******  Results for 10-0.5-static ******
+# 10-0.5-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-0.5-static	0.972	0.930	0.930	0.930
+******  Results for 5-0.5-static ******
+# 5-0.5-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-0.5-static	0.968	0.920	0.920	0.920
+******  Results for 2-0.5-static ******
+# 2-0.5-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-0.5-static	0.920	0.800	0.800	0.800
+******  Results for 100-static ******
+# 100-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-static	0.950	0.875	0.875	0.875
+******  Results for 80-static ******
+# 80-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-static	0.950	0.875	0.875	0.875
+******  Results for 50-static ******
+# 50-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-static	0.950	0.875	0.875	0.875
+******  Results for 10-static ******
+# 10-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-static	0.950	0.875	0.875	0.875
+******  Results for 5-static ******
+# 5-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-static	0.950	0.875	0.875	0.875
+******  Results for 2-static ******
+# 2-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-static	0.920	0.800	0.800	0.800
+******  Results for 100-passion-static ******
+# 100-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-passion-static	0.950	0.875	0.875	0.875
+******  Results for 80-passion-static ******
+# 80-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-passion-static	0.950	0.875	0.875	0.875
+******  Results for 50-passion-static ******
+# 50-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-passion-static	0.950	0.875	0.875	0.875
+******  Results for 10-passion-static ******
+# 10-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-passion-static	0.930	0.825	0.825	0.825
+******  Results for 5-passion-static ******
+# 5-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-passion-static	0.600	0.000	0.000	0.000
+******  Results for 2-passion-static ******
+# 2-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-passion-static	0.600	0.000	0.000	0.000
+******  Results for 100-static ******
+# 100-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-static	0.960	0.900	0.900	0.900
+******  Results for 80-static ******
+# 80-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-static	0.936	0.840	0.840	0.840
+******  Results for 50-static ******
+# 50-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-static	0.936	0.840	0.840	0.840
+******  Results for 10-static ******
+# 10-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-static	0.932	0.830	0.830	0.830
+******  Results for 5-static ******
+# 5-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-static	0.920	0.800	0.800	0.800
+******  Results for 2-static ******
+# 2-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-static	0.832	0.580	0.580	0.580
+******  Results for 100-passion-static ******
+# 100-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-passion-static	0.960	0.900	0.900	0.900
+******  Results for 80-passion-static ******
+# 80-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-passion-static	0.936	0.840	0.840	0.840
+******  Results for 50-passion-static ******
+# 50-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-passion-static	0.936	0.840	0.840	0.840
+******  Results for 10-passion-static ******
+# 10-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-passion-static	0.932	0.830	0.830	0.830
+******  Results for 5-passion-static ******
+# 5-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-passion-static	0.908	0.770	0.770	0.770
+******  Results for 2-passion-static ******
+# 2-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-passion-static	0.804	0.510	0.510	0.510
+******  Results for 100-static ******
+# 100-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-static	0.958	0.895	0.895	0.895
+******  Results for 80-static ******
+# 80-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-static	0.916	0.790	0.790	0.790
+******  Results for 50-static ******
+# 50-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-static	0.916	0.790	0.790	0.790
+******  Results for 10-static ******
+# 10-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-static	0.912	0.780	0.780	0.780
+******  Results for 5-static ******
+# 5-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-static	0.900	0.750	0.750	0.750
+******  Results for 2-static ******
+# 2-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-static	0.822	0.555	0.555	0.555
+******  Results for 100-passion-static ******
+# 100-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-passion-static	0.958	0.895	0.895	0.895
+******  Results for 80-passion-static ******
+# 80-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-passion-static	0.916	0.790	0.790	0.790
+******  Results for 50-passion-static ******
+# 50-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-passion-static	0.916	0.790	0.790	0.790
+******  Results for 10-passion-static ******
+# 10-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-passion-static	0.910	0.775	0.775	0.775
+******  Results for 5-passion-static ******
+# 5-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-passion-static	0.884	0.710	0.710	0.710
+******  Results for 2-passion-static ******
+# 2-passion-static 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-passion-static	0.798	0.495	0.495	0.495
+******  Results for 100-dy ******
+# 100-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-dy	0.944	0.860	0.860	0.860
+******  Results for 80-dy ******
+# 80-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-dy	0.856	0.640	0.640	0.640
+******  Results for 50-dy ******
+# 50-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-dy	0.840	0.600	0.600	0.600
+******  Results for 10-dy ******
+# 10-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-dy	0.828	0.570	0.570	0.570
+******  Results for 5-dy ******
+# 5-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-dy	0.792	0.480	0.480	0.480
+******  Results for 2-dy ******
+# 2-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-dy	0.760	0.400	0.400	0.400
+******  Results for 100-passion-dy ******
+# 100-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-passion-dy	0.940	0.850	0.850	0.850
+******  Results for 80-passion-dy ******
+# 80-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-passion-dy	0.856	0.640	0.640	0.640
+******  Results for 50-passion-dy ******
+# 50-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-passion-dy	0.836	0.590	0.590	0.590
+******  Results for 10-passion-dy ******
+# 10-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-passion-dy	0.816	0.540	0.540	0.540
+******  Results for 5-passion-dy ******
+# 5-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-passion-dy	0.784	0.460	0.460	0.460
+******  Results for 2-passion-dy ******
+# 2-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-passion-dy	0.712	0.280	0.280	0.280
+******  Results for 100-po-dy ******
+# 100-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-po-dy	0.936	0.840	0.840	0.840
+******  Results for 80-po-dy ******
+# 80-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-po-dy	0.936	0.840	0.840	0.840
+******  Results for 50-po-dy ******
+# 50-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-po-dy	0.936	0.840	0.840	0.840
+******  Results for 10-po-dy ******
+# 10-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-po-dy	0.928	0.820	0.820	0.820
+******  Results for 5-po-dy ******
+# 5-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-po-dy	0.604	0.010	0.010	0.010
+******  Results for 2-po-dy ******
+# 2-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-po-dy	0.600	0.000	0.000	0.000
+******  Results for 100-passion-dy ******
+# 100-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-passion-dy	0.936	0.840	0.840	0.840
+******  Results for 80-passion-dy ******
+# 80-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-passion-dy	0.936	0.840	0.840	0.840
+******  Results for 50-passion-dy ******
+# 50-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-passion-dy	0.936	0.840	0.840	0.840
+******  Results for 10-passion-dy ******
+# 10-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-passion-dy	0.924	0.810	0.810	0.810
+******  Results for 5-passion-dy ******
+# 5-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-passion-dy	0.608	0.020	0.020	0.020
+******  Results for 2-passion-dy ******
+# 2-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-passion-dy	0.600	0.000	0.000	0.000
+******  Results for 100-po-dy ******
+# 100-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-po-dy	0.972	0.930	0.930	0.930
+******  Results for 80-po-dy ******
+# 80-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-po-dy	0.972	0.930	0.930	0.930
+******  Results for 50-po-dy ******
+# 50-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-po-dy	0.972	0.930	0.930	0.930
+******  Results for 10-po-dy ******
+# 10-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-po-dy	0.960	0.900	0.900	0.900
+******  Results for 5-po-dy ******
+# 5-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-po-dy	0.600	0.000	0.000	0.000
+******  Results for 2-po-dy ******
+# 2-po-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-po-dy	0.600	0.000	0.000	0.000
+******  Results for 100-passion-dy ******
+# 100-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+100-passion-dy	0.972	0.930	0.930	0.930
+******  Results for 80-passion-dy ******
+# 80-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+80-passion-dy	0.972	0.930	0.930	0.930
+******  Results for 50-passion-dy ******
+# 50-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+50-passion-dy	0.972	0.930	0.930	0.930
+******  Results for 10-passion-dy ******
+# 10-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+10-passion-dy	0.948	0.870	0.870	0.870
+******  Results for 5-passion-dy ******
+# 5-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+5-passion-dy	0.600	0.000	0.000	0.000
+******  Results for 2-passion-dy ******
+# 2-passion-dy 
+#OBS	 Acc	 Prec	 Rec	 F-S
+2-passion-dy	0.600	0.000	0.000	0.000

@@ -1,0 +1,4 @@
+******  Results for loss ******
+# loss 
+#OBS	 Acc	 Prec	 Rec	 F-S
+loss	0.800	0.500	0.500	0.500

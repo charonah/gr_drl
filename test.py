@@ -3,7 +3,8 @@ import math
 import os
 import time
 from recognition import calculate_all_metrics
-
+import psutil
+import random
 
 # goal_set = [[4,4], [0,4], [-4,3], [4.5, -2.5],[-4,-2]]
 # distance_recognition = []
@@ -58,38 +59,75 @@ for i, std in enumerate(noise_std):
 
     print(f"信噪比: {snr_db[i]} dB,生成噪声的标准差: {std:.4f}，计算的信噪比: {snr_out:.4f}")
 
+# neicunzhanyong 
+
+# import psutil
+# process = psutil.Process()
+# process_memory_start = process.memory_info().rss / 1024 / 1024
+
+# process_memory_end = process.memory_info().rss / 1024 / 1024
+# process_memory_usage = process_memory_end - process_memory_start
+# print('Memory usage:', process_memory_usage, 'MB')
 
 
-# 输入数据
-input_data = np.random.uniform(-1, 1, size=2)
+# # 输入数据
+# input_data = np.random.uniform(-1, 1, size=2)
 
-# 信噪比列表
-snr_list = [10, 5, 2]
+# # 信噪比列表
+# snr_list = [10, 5, 2]
 
-# 生成不同信噪比的噪声数据
-for snr in snr_list:
-    # 计算噪声功率
-    noise_power = np.var(input_data) / (10 ** (snr / 10))
-    # 生成噪声数据
-    noise_data = np.random.normal(scale=np.sqrt(noise_power), size=2)
-    # 将噪声数据添加到输入数据中
-    noisy_data = input_data + noise_data
-#     print(noisy_data)
-    # 输出信噪比和噪声数据的标准差
-    print(f"SNR={snr}, Noise STD={np.std(noise_data)}")
+# # 生成不同信噪比的噪声数据
+# for snr in snr_list:
+#     # 计算噪声功率
+#     noise_power = np.var(input_data) / (10 ** (snr / 10))
+#     # 生成噪声数据
+#     noise_data = np.random.normal(scale=np.sqrt(noise_power), size=2)
+#     # 将噪声数据添加到输入数据中
+#     noisy_data = input_data + noise_data
+# #     print(noisy_data)
+#     # 输出信噪比和噪声数据的标准差
+#     print(f"SNR={snr}, Noise STD={np.std(noise_data)}")
 
 
-PARTIAL_OBS = [10, 8, 6, 4, 1] 
-for obs in PARTIAL_OBS:
-    print(type(obs))
+# 生成原始数据
+x = np.random.uniform(-1, 1, (2, 1))
+print(x)
+# 生成均值为0、标准差为1的高斯噪声数据，形状与原始数据相同
+gaussian_noise = np.random.normal(0, 1, x.shape)
 
-accumulated_q_dict = dict()
-PARTIAL_OBS = [10, 8, 6, 4, 1] 
-for key in PARTIAL_OBS:
-    accumulated_q_dict[str(key)] = None
-    print(accumulated_q_dict[str(key)])
+# 按照不同的信噪比，生成不同比例的高斯噪声数据
+snr_db = [10, 5, 0, -5, -10]  # 信噪比(dB)分别为10、5、0、-5、-10
+for db in snr_db:
+    noise = gaussian_noise * 10 ** (-db / 20)
+    noisy_signal = x + noise
+    print("SNR(dB)={}, Noise Variance={:.2f}, SNR={:.2f}".format(
+        db, noise.var(), 10 * np.log10(np.mean(x ** 2) / noise.var())))
+    print(noisy_signal)
 
-print((1%20))
+
+# PARTIAL_OBS = [10, 8, 6, 4, 1] 
+# for obs in PARTIAL_OBS:
+#     print(type(obs))
+
+# accumulated_q_dict = dict()
+# PARTIAL_OBS = [10, 8, 6, 4, 1] 
+# for key in PARTIAL_OBS:
+#     accumulated_q_dict[str(key)] = None
+#     print(accumulated_q_dict[str(key)])
+
+# print((1%20))
+
+# accumulated_q_loss_dict = dict()
+# sample_dict = dict()
+# SAMPLE = [8, 15, 45, 75]
+# for key in SAMPLE:
+#     accumulated_q_loss_dict[str(key)] = 0
+#     sample_dict[str(key)] = np.random.randint(1, 105, size=key).tolist()
+# print(sample_dict)
+
+
+
+
 # ti = [9.54121994972229, 9.955924987792969, 7.007209300994873]
 # if len(ti):
 #         print(sum(ti)/len(ti))

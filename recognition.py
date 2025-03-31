@@ -31,7 +31,6 @@ def recogniton_observability(network, action, state, freq, accumulated_q):
         Qvalues = np.array(Qvalues)
         accumulated_q += Qvalues 
     # print(np.argmax(accumulated_q, axis=0))
-
     return accumulated_q
 
 def recogniton_observability_dict(network, action, state, freq, accumulated_q_dict, partial):
@@ -50,6 +49,71 @@ def recogniton_observability_dict(network, action, state, freq, accumulated_q_di
     return accumulated_q_dict
 
 
+def recogniton_observability_loss(network, action, state, freq, accumulated_q_loss_dict, sample, SAMPLE):
+    for key in SAMPLE:
+        Qvalues = []
+        if freq in sample[str(key)]:
+            for state_ in state:
+                Qvalue = network.get_Qvalue(np.array(action), np.array(state_))
+                Qvalues.append(Qvalue)  
+
+            Qvalues = np.array(Qvalues)
+            accumulated_q_loss_dict[str(key)] += Qvalues 
+ 
+    return accumulated_q_loss_dict
+
+def recogniton_observability_noise(network,
+                                action, 
+                                state,
+                                freq, 
+                                accumulated_q_noise, 
+                                db, 
+                                partial,
+                                GAUSSIAN = False,
+                                PASSION = False,
+                                LAPLACE = False):
+    # 生成不同信噪比的噪声数据
+    for key in db:
+        Qvalues = []
+        state = np.array(state)
+        # 生成均值为0、标准差为1的高斯噪声数据，形状与原始数据相同
+        if GAUSSIAN: 
+            gaussian_noise_action = np.random.normal(0, 1, action.shape)
+            gaussian_noise_state = np.random.normal(0, 1, state.shape)
+            noise_action = gaussian_noise_action * 10 ** (-key / 20)
+            noise_state = gaussian_noise_state * 10 ** (-key / 20)
+        if PASSION:
+            poisson_noise_action = np.random.poisson(2, action.shape)
+            poisson_noise_state = np.random.poisson(2, state.shape)
+            noise_action = poisson_noise_action * 10 ** (-key / 20)
+            noise_state = poisson_noise_state * 10 ** (-key / 20)
+        if LAPLACE:
+            std_action = np.std(action) / (10 ** (key / 20))
+            std_state = np.std(state) / (10 ** (key / 20))
+            laplace_noise_action = np.random.laplace(scale=std_action, size=action.shape)
+            laplace_noise_state = np.random.laplace(scale=std_state, size=state.shape)
+            noise_action = action + laplace_noise_action
+            noise_state = state + laplace_noise_state
+
+        # 将噪声数据添加到输入数据中
+        noisy_action = action + noise_action
+        noisy_state = state + noise_state
+        state = list(state)
+        if freq % partial == 0:
+            action = noisy_action
+            state = noisy_state
+            #     # action = np.random.normal(0, 1, size=2).clip(-1, 1)
+        
+            for state_ in state:
+                Qvalue = network.get_Qvalue(np.array(action), np.array(state_))
+                Qvalues.append(Qvalue)  
+
+            Qvalues = np.array(Qvalues)
+            accumulated_q_noise[str(key)] += Qvalues 
+    # print(np.argmax(accumulated_q, axis=0))
+    return accumulated_q_noise
+
+
 def writter_file(recognition_episode_results, obs_type, file = None):
     accuracy, precision, recall, fscore = calculate_all_metrics(recognition_episode_results)
     print('Accuracy:', accuracy, 'Precision:', precision, 'Recall:', recall, 'F-Score:', fscore)
@@ -62,6 +126,12 @@ def writter_file(recognition_episode_results, obs_type, file = None):
         print('OBS:', obs_type, 'Accuracy:', accuracy, 'Precision:', precision, 'Recall:', recall, 'F-Score:', fscore)
         file.write(f'{obs_type}\t{accuracy:.3f}\t{precision:.3f}\t{recall:.3f}\t{fscore:.3f}\n') 
 
+def writter_time_file(time_array, key, file = None):
+    if file:
+        file = open(file, 'a')
+        file.write(f"******  Results for dynamics {key} ******\n")
+        arv_time = sum(time_array)/len(time_array)
+        file.write(f'{key}\t{arv_time:.3f}\n') 
 
 '''
 TP True Positive 
@@ -95,13 +165,10 @@ def measure_confusion(result, real_goal):
         prediction = True
     else:
         prediction = False
-
     ranking = np.sort(result, axis=0) # sort by acc_Qvalue :low to high
-
     head = ranking[-1]   #the biggest value
     tail = ranking[0:-1]
     fn = int(not prediction)
- 
     fp = 0
     tn = 0
     if prediction:       
@@ -117,7 +184,6 @@ def measure_confusion(result, real_goal):
                 fp += 1
             else:
                 tn += 1
-
     #      tp               fn                   fp  tn       
     return int(prediction), fn, fp, tn
 
